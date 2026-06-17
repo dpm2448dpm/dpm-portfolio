@@ -148,6 +148,34 @@ export default function Home() {
         </div>
       </Section>
 
+      <Section id="pqc" eyebrow={copy.sections.pqcEyebrow} title={copy.sections.pqcTitle}>
+        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          <div className="grid gap-5 lg:grid-cols-3">
+            {copy.pqcFocus.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950"
+              >
+                <h3 className="font-semibold text-slate-950 dark:text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {["ML-KEM", "ML-DSA", "FrodoKEM", "BIKE", "OpenSSL", "OQS Provider", "Hybrid TLS"].map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700 dark:bg-sky-950 dark:text-sky-300"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       <Section
         id="projects"
         eyebrow={copy.sections.projectsEyebrow}

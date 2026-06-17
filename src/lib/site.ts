@@ -62,6 +62,11 @@ type Differentiator = {
   description: string;
 };
 
+type PqcFocus = {
+  title: string;
+  description: string;
+};
+
 export const siteConfig = {
   name: "Darío Pérez Martín",
   role: "Software & AI Engineer",
@@ -74,17 +79,17 @@ export const siteConfig = {
     src: "/images/profile/dario-perez.jpg",
     alt: "Portrait of Darío Pérez Martín",
   },
-  headline: "From idea to production: AI agents, web applications, APIs and infrastructure.",
+  headline: "From idea to production: AI agents, secure systems, APIs and infrastructure.",
   subheadline:
-    "I help businesses build AI-powered products, automations and backend systems that work reliably in production.",
-  heroPill: "Software & AI Engineer · LLM Systems · Backend · Infrastructure",
+    "I help businesses build AI-powered products, automations, backend systems and cryptography-aware software that work reliably in production.",
+  heroPill: "Software & AI Engineer · LLM Systems · PQC · Backend",
   cta: {
     projects: "View Projects",
     contact: "Contact Me",
   },
   heroCardTitle: "production-ready systems",
   about:
-    "Software engineer with six years of production experience building AI-powered systems, backend platforms and data-driven automation. MSc in Cryptography, Cybersecurity and Privacy, with an Outstanding-grade thesis on post-quantum cryptography benchmarking. Experienced across LLM integrations, RAG, Python backends, Laravel/Vue platforms, data pipelines and infrastructure for construction, real estate and research environments.",
+    "Software engineer with six years of production experience building AI-powered systems, backend platforms and data-driven automation. MSc in Cryptography, Cybersecurity and Privacy, with an Outstanding-grade thesis on post-quantum cryptography benchmarking. Experienced across LLM integrations, RAG, Python backends, Laravel/Vue platforms, data pipelines, infrastructure and cryptography-aware engineering for construction, real estate and research environments.",
   seo: {
     title: "Freelance AI Engineer | AI Agents, RAG & Full Stack Development",
     description:
@@ -118,6 +123,8 @@ export const siteConfig = {
     processTitle: "From business workflow to production software.",
     differentEyebrow: "Difference",
     differentTitle: "Why my work does not stop at a polished demo.",
+    pqcEyebrow: "Post-Quantum Cryptography",
+    pqcTitle: "Security thinking for systems that need to survive the next cryptographic shift.",
     projectsEyebrow: "Featured Projects",
     projectsTitle: "Case studies focused on problems, solutions and outcomes.",
     moreWorkTitle: "More Selected Work",
@@ -183,6 +190,12 @@ export const siteConfig = {
       items: ["Business workflows", "Data extraction", "Notifications", "Internal tools", "Process automation"],
     },
     {
+      title: "Security & Post-Quantum Cryptography",
+      description:
+        "Practical cryptography, PQC benchmarking and migration thinking for systems that need privacy, reproducibility and long-term security.",
+      items: ["PQC readiness", "ML-KEM / ML-DSA", "Hybrid TLS", "Benchmarking", "Privacy-by-design"],
+    },
+    {
       title: "Infrastructure",
       description:
         "Deployments, CI/CD and observability foundations that keep products maintainable in production.",
@@ -228,6 +241,23 @@ export const siteConfig = {
         "My cybersecurity and cryptography background shapes how I approach data handling, evaluation, benchmarking and production reliability.",
     },
   ] satisfies Differentiator[],
+  pqcFocus: [
+    {
+      title: "PQC readiness from an engineering perspective",
+      description:
+        "I do not treat post-quantum cryptography as a buzzword. My work focuses on what changes in real systems: algorithms, key sizes, latency, TLS handshakes and deployment constraints.",
+    },
+    {
+      title: "Benchmarking before migration decisions",
+      description:
+        "My MSc thesis measured ML-KEM, ML-DSA, FrodoKEM and BIKE across heterogeneous hardware, with reproducible methodology and raw data versioning.",
+    },
+    {
+      title: "Useful bridge between AI, backend and security",
+      description:
+        "For products handling sensitive data, I can combine backend implementation, AI workflows and privacy/security constraints instead of treating them as separate worlds.",
+    },
+  ] satisfies PqcFocus[],
   projects: [
     {
       name: "Public Alerts",
@@ -512,13 +542,13 @@ export const siteConfig = {
       items: ["Web scraping", "WhatsApp", "Google Calendar", "Email automation", "Notifications", "Market intelligence"],
     },
   ] satisfies TechnologyGroup[],
-  highlights: ["LLM production systems", "RAG architecture", "API design", "Data pipelines"],
+  highlights: ["LLM production systems", "PQC benchmarking", "RAG architecture", "API design"],
   translations: {
     es: {
-      heroPill: "Ingeniero de Software e IA · Sistemas LLM · Backend · Infraestructura",
-      headline: "Construyo sistemas con IA que convierten procesos de negocio complejos en software en producción.",
+      heroPill: "Ingeniero de Software e IA · Sistemas LLM · PQC · Backend",
+      headline: "Construyo sistemas con IA, software seguro, APIs e infraestructura para producción.",
       subheadline:
-        "Ayudo a empresas a crear automatizaciones, productos con IA, APIs y sistemas backend fiables para casos reales, no solo demos.",
+        "Ayudo a empresas a crear automatizaciones, productos con IA, sistemas backend y software consciente de criptografía para casos reales, no solo demos.",
       about:
         "Ingeniero de software con seis años de experiencia construyendo sistemas en producción, plataformas backend y automatización basada en datos e IA. Máster en Criptografía, Ciberseguridad y Privacidad, con tesis sobresaliente sobre benchmarking de criptografía post-cuántica. Experiencia en integraciones LLM, RAG, backends Python, plataformas Laravel/Vue, pipelines de datos e infraestructura para construcción, real estate e investigación.",
       cta: {
@@ -526,7 +556,7 @@ export const siteConfig = {
         contact: "Contactar",
       },
       heroCardTitle: "sistemas preparados para producción",
-      highlights: ["Sistemas LLM en producción", "Arquitecturas RAG", "Diseño de APIs", "Pipelines de datos"],
+      highlights: ["Sistemas LLM en producción", "Benchmarking PQC", "Arquitecturas RAG", "Diseño de APIs"],
       sections: {
         servicesEyebrow: "Servicios",
         servicesTitle: "Apoyo de ingeniería desde prototipo hasta producción.",
@@ -534,6 +564,8 @@ export const siteConfig = {
         processTitle: "Del proceso de negocio al software en producción.",
         differentEyebrow: "Diferencial",
         differentTitle: "Por qué mi trabajo no se queda en una demo bonita.",
+        pqcEyebrow: "Criptografía post-cuántica",
+        pqcTitle: "Pensamiento de seguridad para sistemas que deben sobrevivir al próximo cambio criptográfico.",
         projectsEyebrow: "Proyectos destacados",
         projectsTitle: "Casos centrados en problemas, soluciones y resultados.",
         moreWorkTitle: "Más trabajos seleccionados",
@@ -584,6 +616,12 @@ export const siteConfig = {
             "Despliegues, CI/CD y bases de observabilidad para mantener productos en producción.",
           items: ["Docker", "Despliegues cloud", "CI/CD", "Monitorización", "Arquitectura de sistemas"],
         },
+        {
+          title: "Seguridad y criptografía post-cuántica",
+          description:
+            "Criptografía aplicada, benchmarking PQC y criterio de migración para sistemas que necesitan privacidad, reproducibilidad y seguridad a largo plazo.",
+          items: ["Preparación PQC", "ML-KEM / ML-DSA", "TLS híbrido", "Benchmarking", "Privacy-by-design"],
+        },
       ],
       process: [
         {
@@ -622,6 +660,23 @@ export const siteConfig = {
           title: "Me importan la reproducibilidad y la privacidad",
           description:
             "Mi base en ciberseguridad y criptografía influye en cómo trato datos, evaluación, benchmarking y fiabilidad en producción.",
+        },
+      ],
+      pqcFocus: [
+        {
+          title: "PQC readiness desde una perspectiva de ingeniería",
+          description:
+            "No trato la criptografía post-cuántica como una palabra de moda. Me centro en lo que cambia en sistemas reales: algoritmos, tamaños de clave, latencia, handshakes TLS y restricciones de despliegue.",
+        },
+        {
+          title: "Benchmarking antes de decidir migraciones",
+          description:
+            "Mi tesis de máster midió ML-KEM, ML-DSA, FrodoKEM y BIKE en hardware heterogéneo, con metodología reproducible y versionado de datos brutos.",
+        },
+        {
+          title: "Puente útil entre IA, backend y seguridad",
+          description:
+            "En productos con datos sensibles puedo combinar implementación backend, workflows de IA y restricciones de privacidad/seguridad sin tratarlos como mundos separados.",
         },
       ],
       credentials: [
