@@ -77,7 +77,9 @@ export default function Home() {
                 <div>
                   <p className="text-sm text-sky-300">{copy.heroCardTitle}</p>
                   <p className="mt-2 text-xl font-semibold text-white">{siteConfig.name}</p>
-                  <p className="mt-1 text-sm text-slate-400">Remote · Salamanca, Spain</p>
+                  <p className="mt-1 text-sm text-slate-400">
+                    Remote · Cáceres, Salamanca & available to travel
+                  </p>
                 </div>
               </div>
               <div className="mt-8 space-y-4">
