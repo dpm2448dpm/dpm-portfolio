@@ -64,6 +64,7 @@ export const siteConfig = {
   email,
   linkedIn: "https://www.linkedin.com/in/dar%C3%ADo-p%C3%A9rez-mart%C3%ADn-47529396/",
   github: "https://github.com/dpm2448dpm",
+  malt: "https://www.malt.es/profile/darioperez",
   headline: "From idea to production: AI agents, web applications, APIs and infrastructure.",
   subheadline:
     "I help businesses build AI-powered products, automations and backend systems that work reliably in production.",
@@ -463,6 +464,11 @@ export const contactLinks = [
     value: siteConfig.github.replace("https://", ""),
     href: siteConfig.github,
   },
+  {
+    label: "Malt",
+    value: siteConfig.malt.replace("https://", ""),
+    href: siteConfig.malt,
+  },
 ];
 
 export const personJsonLd = {
@@ -480,5 +486,5 @@ export const personJsonLd = {
     "Full Stack Development",
     "DevOps",
   ],
-  sameAs: [siteConfig.linkedIn, siteConfig.github],
+  sameAs: [siteConfig.linkedIn, siteConfig.github, siteConfig.malt],
 };
