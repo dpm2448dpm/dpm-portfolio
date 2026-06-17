@@ -57,6 +57,11 @@ type Publication = {
   tags: string[];
 };
 
+type Differentiator = {
+  title: string;
+  description: string;
+};
+
 export const siteConfig = {
   name: "Darío Pérez Martín",
   role: "Software & AI Engineer",
@@ -65,10 +70,19 @@ export const siteConfig = {
   linkedIn: "https://www.linkedin.com/in/dar%C3%ADo-p%C3%A9rez-mart%C3%ADn-47529396/",
   github: "https://github.com/dpm2448dpm",
   malt: "https://www.malt.es/profile/darioperez",
+  profileImage: {
+    src: "/images/profile/dario-perez.jpg",
+    alt: "Portrait of Darío Pérez Martín",
+  },
   headline: "From idea to production: AI agents, web applications, APIs and infrastructure.",
   subheadline:
     "I help businesses build AI-powered products, automations and backend systems that work reliably in production.",
   heroPill: "Software & AI Engineer · LLM Systems · Backend · Infrastructure",
+  cta: {
+    projects: "View Projects",
+    contact: "Contact Me",
+  },
+  heroCardTitle: "production-ready systems",
   about:
     "Software engineer with six years of production experience building AI-powered systems, backend platforms and data-driven automation. MSc in Cryptography, Cybersecurity and Privacy, with an Outstanding-grade thesis on post-quantum cryptography benchmarking. Experienced across LLM integrations, RAG, Python backends, Laravel/Vue platforms, data pipelines and infrastructure for construction, real estate and research environments.",
   seo: {
@@ -97,6 +111,38 @@ export const siteConfig = {
     { label: "Education", value: "MSc Cryptography, Cybersecurity & Privacy" },
     { label: "Recognition", value: "Innovation Award, CEOE-Cepyme Salamanca" },
   ] satisfies Credential[],
+  sections: {
+    servicesEyebrow: "Services",
+    servicesTitle: "Engineering support from prototype to production.",
+    processEyebrow: "How I Work",
+    processTitle: "From business workflow to production software.",
+    differentEyebrow: "Difference",
+    differentTitle: "Why my work does not stop at a polished demo.",
+    projectsEyebrow: "Featured Projects",
+    projectsTitle: "Case studies focused on problems, solutions and outcomes.",
+    moreWorkTitle: "More Selected Work",
+    aboutEyebrow: "About",
+    aboutTitle: "A practical engineering partner for AI-enabled products.",
+    publicationsEyebrow: "Publications & Academic Work",
+    publicationsTitle: "Research background in cryptography, benchmarking and privacy.",
+    stackEyebrow: "Technology Stack",
+    stackTitle: "Tools selected for reliable delivery.",
+    contactEyebrow: "Contact",
+    contactTitle: "Tell me about your project.",
+    contactText:
+      "Share the business problem, current constraints and what a successful outcome would look like.",
+  },
+  projectLabels: {
+    caseStudy: "case study",
+    context: "Context",
+    role: "Role",
+    problem: "Problem",
+    solution: "Solution",
+    contribution: "Contribution",
+    technologies: "Technologies",
+    outcome: "Outcome",
+    publication: "View publication",
+  },
   publications: [
     {
       title: "Performance Benchmarking of Post-Quantum Cryptographic Algorithms across Heterogeneous Hardware Environments",
@@ -165,6 +211,23 @@ export const siteConfig = {
         "I prepare deployments, monitoring points and feedback loops so products can improve after the first release.",
     },
   ],
+  differentiators: [
+    {
+      title: "I work well with messy business workflows",
+      description:
+        "Many useful systems start with spreadsheets, legacy tools, WhatsApp messages, PDFs and undocumented routines. I turn that reality into software that teams can actually use.",
+    },
+    {
+      title: "I can connect product, backend, data and AI",
+      description:
+        "I am comfortable moving from user workflow and domain rules to APIs, databases, background jobs, LLM integrations and deployment.",
+    },
+    {
+      title: "I care about reproducibility and privacy",
+      description:
+        "My cybersecurity and cryptography background shapes how I approach data handling, evaluation, benchmarking and production reliability.",
+    },
+  ] satisfies Differentiator[],
   projects: [
     {
       name: "Public Alerts",
@@ -450,6 +513,358 @@ export const siteConfig = {
     },
   ] satisfies TechnologyGroup[],
   highlights: ["LLM production systems", "RAG architecture", "API design", "Data pipelines"],
+  translations: {
+    es: {
+      heroPill: "Ingeniero de Software e IA · Sistemas LLM · Backend · Infraestructura",
+      headline: "Construyo sistemas con IA que convierten procesos de negocio complejos en software en producción.",
+      subheadline:
+        "Ayudo a empresas a crear automatizaciones, productos con IA, APIs y sistemas backend fiables para casos reales, no solo demos.",
+      about:
+        "Ingeniero de software con seis años de experiencia construyendo sistemas en producción, plataformas backend y automatización basada en datos e IA. Máster en Criptografía, Ciberseguridad y Privacidad, con tesis sobresaliente sobre benchmarking de criptografía post-cuántica. Experiencia en integraciones LLM, RAG, backends Python, plataformas Laravel/Vue, pipelines de datos e infraestructura para construcción, real estate e investigación.",
+      cta: {
+        projects: "Ver proyectos",
+        contact: "Contactar",
+      },
+      heroCardTitle: "sistemas preparados para producción",
+      highlights: ["Sistemas LLM en producción", "Arquitecturas RAG", "Diseño de APIs", "Pipelines de datos"],
+      sections: {
+        servicesEyebrow: "Servicios",
+        servicesTitle: "Apoyo de ingeniería desde prototipo hasta producción.",
+        processEyebrow: "Cómo trabajo",
+        processTitle: "Del proceso de negocio al software en producción.",
+        differentEyebrow: "Diferencial",
+        differentTitle: "Por qué mi trabajo no se queda en una demo bonita.",
+        projectsEyebrow: "Proyectos destacados",
+        projectsTitle: "Casos centrados en problemas, soluciones y resultados.",
+        moreWorkTitle: "Más trabajos seleccionados",
+        aboutEyebrow: "Sobre mí",
+        aboutTitle: "Un perfil práctico para productos con IA y sistemas reales.",
+        publicationsEyebrow: "Publicaciones y trabajo académico",
+        publicationsTitle: "Base investigadora en criptografía, benchmarking y privacidad.",
+        stackEyebrow: "Stack técnico",
+        stackTitle: "Herramientas elegidas para entregar software fiable.",
+        contactEyebrow: "Contacto",
+        contactTitle: "Cuéntame tu proyecto.",
+        contactText:
+          "Comparte el problema de negocio, las restricciones actuales y cómo sería un buen resultado.",
+      },
+      projectLabels: {
+        caseStudy: "caso",
+        context: "Contexto",
+        role: "Rol",
+        problem: "Problema",
+        solution: "Solución",
+        contribution: "Contribución",
+        technologies: "Tecnologías",
+        outcome: "Resultado",
+        publication: "Ver publicación",
+      },
+      services: [
+        {
+          title: "IA y agentes",
+          description:
+            "Integraciones LLM, flujos agentic y asistentes de conocimiento pensados para resolver problemas operativos.",
+          items: ["Integraciones LLM", "Agentes de IA", "Sistemas RAG", "Chatbots", "Workflows con IA"],
+        },
+        {
+          title: "Desarrollo full stack",
+          description:
+            "Aplicaciones web, APIs y sistemas backend diseñados alrededor de procesos reales de negocio.",
+          items: ["Aplicaciones React", "Sistemas backend", "APIs", "Diseño de bases de datos", "Aplicaciones web"],
+        },
+        {
+          title: "Automatización",
+          description:
+            "Herramientas internas y automatizaciones que eliminan trabajo repetitivo y conectan datos entre sistemas.",
+          items: ["Procesos de negocio", "Extracción de datos", "Notificaciones", "Herramientas internas", "Automatización"],
+        },
+        {
+          title: "Infraestructura",
+          description:
+            "Despliegues, CI/CD y bases de observabilidad para mantener productos en producción.",
+          items: ["Docker", "Despliegues cloud", "CI/CD", "Monitorización", "Arquitectura de sistemas"],
+        },
+      ],
+      process: [
+        {
+          title: "Entender el proceso",
+          description:
+            "Empiezo por el proceso de negocio, las fuentes de datos y las restricciones antes de elegir la implementación.",
+        },
+        {
+          title: "Construir un núcleo fiable",
+          description:
+            "Me centro en APIs, jobs, integraciones y flujos de datos que puedan funcionar de forma estable en producción.",
+        },
+        {
+          title: "Añadir IA donde aporta",
+          description:
+            "Uso LLMs, RAG y agentes para reducir trabajo manual, resumir información o facilitar decisiones.",
+        },
+        {
+          title: "Publicar e iterar",
+          description:
+            "Preparo despliegues, puntos de monitorización y bucles de feedback para mejorar tras la primera versión.",
+        },
+      ],
+      differentiators: [
+        {
+          title: "Trabajo bien con procesos de negocio desordenados",
+          description:
+            "Muchos sistemas útiles empiezan con Excel, herramientas heredadas, WhatsApp, PDFs y rutinas no documentadas. Convierto esa realidad en software que los equipos usan.",
+        },
+        {
+          title: "Conecto producto, backend, datos e IA",
+          description:
+            "Puedo pasar del flujo de usuario y reglas de dominio a APIs, bases de datos, jobs, integraciones LLM y despliegue.",
+        },
+        {
+          title: "Me importan la reproducibilidad y la privacidad",
+          description:
+            "Mi base en ciberseguridad y criptografía influye en cómo trato datos, evaluación, benchmarking y fiabilidad en producción.",
+        },
+      ],
+      credentials: [
+        { label: "Experiencia en producción", value: "6 años" },
+        { label: "Usuarios internos", value: "~200" },
+        { label: "Clientes externos alcanzados", value: ">10.000" },
+        { label: "Financiación I+D co-redactada", value: "~500K€" },
+        { label: "Formación", value: "MSc Criptografía, Ciberseguridad y Privacidad" },
+        { label: "Reconocimiento", value: "Premio Innovación, CEOE-Cepyme Salamanca" },
+      ],
+      projects: [
+        {
+          name: "Public Alerts",
+          category: "Scraping y notificaciones",
+          summary:
+            "Plataforma que rastrea webs de administraciones públicas y avisa a suscriptores sobre oposiciones, interinidades y oportunidades relacionadas.",
+          context:
+            "Producto para opositores que necesitan vigilar múltiples fuentes oficiales sin revisar manualmente cada administración.",
+          role: "Diseñé y construí los flujos de scraping, procesamiento de datos y notificaciones.",
+          problem:
+            "La información sobre oposiciones e interinidades está dispersa en muchas webs, por lo que es fácil perder novedades relevantes.",
+          solution:
+            "Construí un sistema que monitoriza fuentes públicas, normaliza oportunidades detectadas y envía alertas segmentadas.",
+          contribution: [
+            "Implementé jobs de scraping para varias administraciones públicas.",
+            "Modelé oportunidades, suscripciones y reglas de notificación.",
+            "Construí el flujo de entrega para avisar a usuarios cuando aparecen novedades relevantes.",
+          ],
+          outcome: [
+            "Monitorización centralizada de fuentes públicas fragmentadas.",
+            "Alertas a tiempo para suscriptores según sus intereses.",
+          ],
+          status: "Producto real. Añadir enlaces y capturas cuando esté listo.",
+        },
+        {
+          name: "WhatsApp Medical Appointments",
+          category: "Asistente IA y SaaS",
+          summary:
+            "Producto por suscripción para clínicas que automatiza la gestión de citas por WhatsApp e integra Google Calendar.",
+          context:
+            "SaaS para clínicas que necesitan una capa de recepción ligera sin aumentar trabajo administrativo.",
+          role: "Diseñé el flujo de producto, conversación por WhatsApp e integración de calendario.",
+          problem:
+            "Las clínicas pierden tiempo respondiendo mensajes repetitivos y coordinando disponibilidad, confirmaciones y calendario.",
+          solution:
+            "Construí un recepcionista por WhatsApp que gestiona solicitudes, comprueba disponibilidad y crea eventos de calendario.",
+          contribution: [
+            "Modelé onboarding de clínicas, suscripción y flujos de cita.",
+            "Integré mensajería WhatsApp con lógica automatizada de agenda.",
+            "Conecté reservas con Google Calendar para sincronizar calendarios.",
+          ],
+          outcome: [
+            "Menos trabajo repetitivo de recepción.",
+            "Flujo automatizado desde mensaje hasta cita en calendario.",
+          ],
+          status: "Producto en desarrollo.",
+        },
+        {
+          name: "Market Sentiment Intelligence",
+          category: "Inteligencia de datos e IA",
+          summary:
+            "Plataforma que agrega opiniones de sitios y aplica analítica y sentimiento de mercado para empresas.",
+          context:
+            "Proyecto de cliente orientado a convertir opiniones dispersas en señales de negocio y mercado.",
+          role: "Construyo la capa de agregación y análisis de datos junto a un colaborador.",
+          problem:
+            "Las empresas tienen muchas opiniones públicas disponibles, pero extraer tendencias y sentimiento lleva demasiado tiempo.",
+          solution:
+            "Agrega opiniones de distintas fuentes y aplica análisis para detectar sentimiento, posicionamiento y patrones recurrentes.",
+          contribution: [
+            "Diseñé el modelo de datos para agregación y análisis de opiniones.",
+            "Construí flujos de ingesta desde fuentes externas.",
+            "Ayudé a definir la capa de insights para informes de mercado y sentimiento.",
+          ],
+          outcome: [
+            "Convierte opiniones brutas en inteligencia de mercado accionable.",
+            "Ayuda a detectar patrones difíciles de ver manualmente.",
+          ],
+          status: "Proyecto de cliente en desarrollo.",
+        },
+        {
+          name: "AI Reminder Campaigns",
+          category: "Automatización con IA",
+          summary:
+            "Servicio interno que envía recordatorios asistidos por IA a grupos de usuarios mediante distintos canales.",
+          context:
+            "Proyecto de empresa para programar comunicaciones recurrentes con temática, audiencia, frecuencia y canal configurables.",
+          role: "Construí servicios para configurar, generar y entregar recordatorios recurrentes con IA.",
+          problem:
+            "Los equipos necesitaban recordar temas a distintos usuarios sin escribir y enviar cada mensaje manualmente.",
+          solution:
+            "Creé un sistema donde se elige audiencia, tema, frecuencia y canal, con IA ayudando a generar el contenido.",
+          contribution: [
+            "Modelé selección de audiencias, frecuencias y configuración de campañas.",
+            "Construí servicios de generación con IA y planificación de envíos.",
+            "Integré múltiples canales de notificación para uso operativo.",
+          ],
+          outcome: [
+            "Automatización de comunicaciones recurrentes.",
+            "Control de audiencia, canal, temática y frecuencia por parte de los equipos.",
+          ],
+          status: "Proyecto de empresa en producción, anonimizado.",
+        },
+        {
+          name: "Weekly Audio Project Reports",
+          category: "Resumen con IA",
+          summary:
+            "Bot que transforma audios de usuarios sobre obras en un email semanal resumido.",
+          context:
+            "Proyecto de empresa para equipos de construcción que reportan problemas durante la semana mediante audios rápidos.",
+          role: "Construí la automatización que procesa audios entrantes y genera borradores semanales de email.",
+          problem:
+            "Los usuarios registraban problemas en audio, pero convertirlos en comunicación semanal estructurada requería trabajo manual.",
+          solution:
+            "Construí un bot que recopila mensajes de audio, los procesa y genera un resumen semanal listo para revisar y enviar.",
+          contribution: [
+            "Diseñé el flujo de entrada de audio y agrupación semanal.",
+            "Implementé resumen con IA para notas de proyectos de construcción.",
+            "Generé emails listos para revisar por usuarios finales.",
+          ],
+          outcome: [
+            "Menos esfuerzo manual en reportes de obra.",
+            "Conversión de audios desestructurados en resúmenes accionables.",
+          ],
+          status: "Proyecto de empresa en producción, anonimizado.",
+        },
+        {
+          name: "BC3 Budget Generator",
+          category: "LLM y RAG",
+          summary:
+            "Sistema de generación de presupuestos que usa LLMs y RAG sobre datos de construcción para producir estimaciones tipo BC3.",
+          context:
+            "Proyecto de empresa construido con compañeros para apoyar presupuestación con conocimiento específico del sector construcción.",
+          role: "Contribuí a la capa de IA y datos para generación de presupuestos con LLMs y recuperación de información.",
+          problem:
+            "Crear presupuestos de construcción requiere conocimiento de dominio, datos estructurados y mucho trabajo repetitivo.",
+          solution:
+            "Construimos un generador asistido por IA que recupera datos relevantes y usa LLMs para producir estimaciones estructuradas.",
+          contribution: [
+            "Trabajé en flujos de recuperación sobre datos de costes de construcción.",
+            "Ayudé a integrar salidas LLM en procesos de generación de presupuestos.",
+            "Colaboré en una herramienta orientada a producción con restricciones de dominio.",
+          ],
+          outcome: [
+            "Aceleración del borrador de presupuestos de construcción.",
+            "Reutilización de datos de dominio para estimaciones más contextuales.",
+          ],
+          status: "Proyecto de empresa en producción, anonimizado.",
+        },
+      ],
+      additionalWork: [
+        {
+          name: "Monitor de noticias de construcción",
+          description:
+            "Sistema diario de inteligencia que rastrea fuentes públicas y privadas para identificar licitaciones, empresas y oportunidades de construcción.",
+          tags: ["Inteligencia de mercado", "Scraping", "Notificaciones", "Construcción"],
+        },
+        {
+          name: "CRM privado y herramientas de facturación",
+          description:
+            "Trabajo en CRM interno para operaciones de negocio, facturación y flujos privados de gestión.",
+          tags: ["CRM", "Backend", "Herramientas internas", "Operaciones"],
+        },
+        {
+          name: "Estimador de reformas",
+          description:
+            "Aplicación web que estima costes de reforma a partir de un formulario guiado y convierte inputs en rangos de presupuesto.",
+          tags: ["Full stack", "Formularios", "Estimaciones", "Construcción"],
+        },
+        {
+          name: "Ingesta de datos de catastro",
+          description:
+            "Software para descargar e ingerir datasets completos de catastro para varios servicios internos y productos de datos.",
+          tags: ["Ingesta de datos", "ETL", "Catastro", "Backend"],
+        },
+        {
+          name: "Proyectos CDTI de I+D",
+          description:
+            "Tres proyectos de I+D con teoría de grafos, IA y análisis de variables mercantiles y de construcción para precios, márgenes y reformas óptimas.",
+          tags: ["I+D", "Teoría de grafos", "IA", "Análisis de datos"],
+        },
+        {
+          name: "Benchmarking PQC",
+          description:
+            "Framework open-source de tesis de máster para comparar ML-KEM, ML-DSA, FrodoKEM y BIKE contra criptografía clásica en x86_64 y ARM64.",
+          tags: ["Criptografía post-cuántica", "Benchmarking", "Python", "OpenSSL"],
+        },
+        {
+          name: "Optimizador de inversión en reformas",
+          description:
+            "Herramienta de análisis inmobiliario que rankea paquetes de reforma según ROI esperado usando diferenciales de precio por metro cuadrado.",
+          tags: ["Real estate", "Optimización", "Análisis de datos", "Python"],
+        },
+        {
+          name: "Predicción de éxito empresarial",
+          description:
+            "Plataforma de investigación con modelos ML preentrenados para apoyar predicción de éxito empresarial y workflows de datos.",
+          tags: ["Machine learning", "Node.js", "Express", "Investigación"],
+        },
+        {
+          name: "Análisis de eficiencia de rutas",
+          description:
+            "Proyecto de análisis de datos para rutas de distribución de combustible que identificó alrededor de 100.000€ de ahorro anual.",
+          tags: ["Análisis de datos", "Operaciones", "Reporting", "Optimización"],
+        },
+        {
+          name: "RAG privado cifrado",
+          description:
+            "Proyecto personal explorando generación aumentada por recuperación privada y cifrada para bases de conocimiento sensibles.",
+          tags: ["RAG", "Cifrado", "Privacidad", "LLMs"],
+        },
+      ],
+      publications: [
+        {
+          title: "Performance Benchmarking of Post-Quantum Cryptographic Algorithms across Heterogeneous Hardware Environments",
+          venue: "Tesis de máster, Universitat Oberta de Catalunya",
+          year: "2026",
+          description:
+            "Tesis con calificación sobresaliente y framework reproducible para comparar algoritmos post-cuánticos como ML-KEM, ML-DSA, FrodoKEM y BIKE frente a criptografía clásica en hardware x86_64 y ARM64.",
+          href: "https://hdl.handle.net/10609/154216",
+          tags: ["Criptografía post-cuántica", "Benchmarking", "OpenSSL", "OQS", "Python"],
+        },
+        {
+          title: "Post-Quantum Cryptography: Algorithms and Impact",
+          venue: "Publicación académica, Universitat Oberta de Catalunya",
+          year: "2026",
+          description:
+            "Trabajo académico sobre impacto práctico de algoritmos post-cuánticos, migración criptográfica y compromisos de rendimiento en sistemas reales.",
+          href: "https://hdl.handle.net/10609/154216",
+          tags: ["PQC", "Ciberseguridad", "Privacidad", "Migración criptográfica"],
+        },
+      ],
+      technologyGroups: [
+        { category: "Backend y APIs", items: ["Python", "FastAPI", "Laravel", "PHP", "Java", "Node.js", "Express", "REST APIs"] },
+        { category: "Frontend", items: ["TypeScript", "JavaScript", "React", "Next.js", "Vue", "Tailwind CSS"] },
+        { category: "IA y LLMs", items: ["Integraciones LLM", "Claude", "OpenAI", "Perplexity", "DeepInfra", "RAG", "Embeddings", "LangGraph", "Agentes IA"] },
+        { category: "Datos y analítica", items: ["Pandas", "NumPy", "R", "Análisis de sentimiento", "Pipelines de datos", "ETL", "Cytoscape"] },
+        { category: "Bases de datos e infraestructura", items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Docker", "Linux", "GitHub Actions", "Vercel", "AWS"] },
+        { category: "Seguridad y criptografía", items: ["PQC", "ML-KEM", "ML-DSA", "OpenSSL", "OQS Provider", "GDPR", "Privacy-by-design", "Metasploit"] },
+        { category: "Automatización e integraciones", items: ["Web scraping", "WhatsApp", "Google Calendar", "Email automation", "Notificaciones", "Inteligencia de mercado"] },
+      ],
+    },
+  },
 };
 
 export const contactLinks = [

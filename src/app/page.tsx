@@ -1,7 +1,13 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 import { contactLinks, personJsonLd, siteConfig } from "@/lib/site";
 
 export default function Home() {
+  const [language, setLanguage] = useState<"en" | "es">("en");
+  const copy = language === "en" ? siteConfig : siteConfig.translations.es;
+
   return (
     <main className="min-h-screen overflow-hidden">
       <script
@@ -10,37 +16,70 @@ export default function Home() {
       />
       <section className="relative border-b border-slate-200 bg-white px-6 py-24 dark:border-slate-800 dark:bg-slate-950 sm:py-32">
         <div className="absolute inset-0 -z-0 bg-[radial-gradient(circle_at_top_right,rgba(14,165,233,0.18),transparent_36rem)]" />
+        <div className="absolute right-6 top-6 z-10 inline-flex rounded-full border border-slate-200 bg-white p-1 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          {(["en", "es"] as const).map((locale) => (
+            <button
+              key={locale}
+              type="button"
+              onClick={() => setLanguage(locale)}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                language === locale
+                  ? "bg-slate-950 text-white dark:bg-white dark:text-slate-950"
+                  : "text-slate-600 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white"
+              }`}
+              aria-pressed={language === locale}
+            >
+              {locale.toUpperCase()}
+            </button>
+          ))}
+        </div>
         <div className="relative mx-auto grid max-w-6xl gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
           <div>
             <p className="mb-5 inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-sm font-medium text-sky-700 dark:border-sky-900 dark:bg-sky-950 dark:text-sky-300">
-              {siteConfig.heroPill}
+              {copy.heroPill}
             </p>
             <h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-6xl">
-              {siteConfig.headline}
+              {copy.headline}
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-              {siteConfig.subheadline}
+              {copy.subheadline}
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a
                 href="#projects"
                 className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200"
               >
-                View Projects
+                {copy.cta.projects}
               </a>
               <a
                 href="#contact"
                 className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-950 dark:border-slate-700 dark:text-white dark:hover:border-slate-300"
               >
-                Contact Me
+                {copy.cta.contact}
               </a>
             </div>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-2xl shadow-slate-200/60 dark:border-slate-800 dark:bg-slate-900 dark:shadow-black/30">
             <div className="rounded-2xl bg-slate-950 p-6 text-slate-100">
-              <p className="text-sm text-sky-300">production-ready systems</p>
+              <div className="flex items-center gap-4">
+                <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl border border-slate-800 bg-slate-900">
+                  <Image
+                    src={siteConfig.profileImage.src}
+                    alt={siteConfig.profileImage.alt}
+                    fill
+                    className="object-cover"
+                    sizes="96px"
+                    priority
+                  />
+                </div>
+                <div>
+                  <p className="text-sm text-sky-300">{copy.heroCardTitle}</p>
+                  <p className="mt-2 text-xl font-semibold text-white">{siteConfig.name}</p>
+                  <p className="mt-1 text-sm text-slate-400">Remote · Salamanca, Spain</p>
+                </div>
+              </div>
               <div className="mt-8 space-y-4">
-                {siteConfig.highlights.map((item) => (
+                {copy.highlights.map((item) => (
                   <div key={item} className="rounded-xl border border-slate-800 bg-slate-900 p-4">
                     <p className="font-medium">{item}</p>
                   </div>
@@ -50,9 +89,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Section id="services" eyebrow="Services" title="Engineering support from prototype to production.">
+      <Section id="services" eyebrow={copy.sections.servicesEyebrow} title={copy.sections.servicesTitle}>
         <div className="grid gap-5 md:grid-cols-2">
-          {siteConfig.services.map((service) => (
+          {copy.services.map((service) => (
             <article
               key={service.title}
               className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
@@ -74,9 +113,9 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section id="process" eyebrow="How I Work" title="From business workflow to production software.">
+      <Section id="process" eyebrow={copy.sections.processEyebrow} title={copy.sections.processTitle}>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {siteConfig.process.map((step, index) => (
+          {copy.process.map((step, index) => (
             <article
               key={step.title}
               className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
@@ -91,13 +130,30 @@ export default function Home() {
         </div>
       </Section>
 
+      <Section id="different" eyebrow={copy.sections.differentEyebrow} title={copy.sections.differentTitle}>
+        <div className="grid gap-5 lg:grid-cols-3">
+          {copy.differentiators.map((item) => (
+            <article
+              key={item.title}
+              className="rounded-3xl border border-slate-200 bg-slate-950 p-6 text-white shadow-sm dark:border-slate-800"
+            >
+              <h3 className="text-xl font-semibold">{item.title}</h3>
+              <p className="mt-4 text-sm leading-6 text-slate-300">{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
       <Section
         id="projects"
-        eyebrow="Featured Projects"
-        title="Case studies focused on problems, solutions and outcomes."
+        eyebrow={copy.sections.projectsEyebrow}
+        title={copy.sections.projectsTitle}
       >
         <div className="space-y-8">
-          {siteConfig.projects.map((project, index) => (
+          {copy.projects.map((project, index) => {
+            const projectVisual = siteConfig.projects[index];
+
+            return (
             <article
               key={project.name}
               className="grid gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 lg:grid-cols-[0.85fr_1.15fr]"
@@ -105,24 +161,24 @@ export default function Home() {
               <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-sky-950 text-white">
                 <div className="relative h-56">
                   <Image
-                    src={project.image.src}
-                    alt={project.image.alt}
+                    src={projectVisual.image.src}
+                    alt={projectVisual.image.alt}
                     fill
                     className="object-cover"
                     sizes="(min-width: 1024px) 390px, 100vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
                   <a
-                    href={project.image.creditUrl}
+                    href={projectVisual.image.creditUrl}
                     className="absolute bottom-3 right-3 rounded-full bg-black/50 px-3 py-1 text-xs text-slate-200 backdrop-blur transition hover:text-white"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    {project.image.credit}
+                    {projectVisual.image.credit}
                   </a>
                 </div>
                 <div className="p-6">
-                <p className="font-mono text-sm text-sky-300">0{index + 1} / case study</p>
+                <p className="font-mono text-sm text-sky-300">0{index + 1} / {copy.projectLabels.caseStudy}</p>
                 <p className="mt-3 inline-flex rounded-full bg-white/10 px-3 py-1 text-sm text-slate-200">
                   {project.category}
                 </p>
@@ -131,9 +187,9 @@ export default function Home() {
                 <p className="mt-8 rounded-xl border border-sky-900 bg-sky-950/60 p-3 text-sm text-sky-100">
                   {project.status}
                 </p>
-                {project.links ? (
+                {projectVisual.links ? (
                   <div className="mt-5 flex flex-wrap gap-3">
-                    {project.links.map((link) => (
+                    {projectVisual.links.map((link) => (
                       <a
                         key={link.href}
                         href={link.href}
@@ -149,13 +205,13 @@ export default function Home() {
                 </div>
               </div>
               <div className="space-y-5">
-                <ProjectBlock title="Context" text={project.context} />
-                <ProjectBlock title="Role" text={project.role} />
-                <ProjectBlock title="Problem" text={project.problem} />
-                <ProjectBlock title="Solution" text={project.solution} />
+                <ProjectBlock title={copy.projectLabels.context} text={project.context} />
+                <ProjectBlock title={copy.projectLabels.role} text={project.role} />
+                <ProjectBlock title={copy.projectLabels.problem} text={project.problem} />
+                <ProjectBlock title={copy.projectLabels.solution} text={project.solution} />
                 <div>
                   <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-                    Contribution
+                    {copy.projectLabels.contribution}
                   </h4>
                   <ul className="mt-3 space-y-2 text-slate-700 dark:text-slate-300">
                     {project.contribution.map((item) => (
@@ -168,10 +224,10 @@ export default function Home() {
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-                    Technologies
+                    {copy.projectLabels.technologies}
                   </h4>
                   <div className="mt-3 flex flex-wrap gap-2">
-                    {project.technologies.map((technology) => (
+                    {projectVisual.technologies.map((technology) => (
                       <span
                         key={technology}
                         className="rounded-full border border-slate-200 px-3 py-1 text-sm text-slate-700 dark:border-slate-700 dark:text-slate-300"
@@ -183,7 +239,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-                    Outcome
+                    {copy.projectLabels.outcome}
                   </h4>
                   <ul className="mt-3 space-y-2 text-slate-700 dark:text-slate-300">
                     {project.outcome.map((item) => (
@@ -196,14 +252,15 @@ export default function Home() {
                 </div>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
         <div className="mt-12">
           <h3 className="text-2xl font-semibold tracking-tight text-slate-950 dark:text-white">
-            More Selected Work
+            {copy.sections.moreWorkTitle}
           </h3>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {siteConfig.additionalWork.map((work) => (
+            {copy.additionalWork.map((work) => (
               <article
                 key={work.name}
                 className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900"
@@ -228,11 +285,11 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section id="about" eyebrow="About" title="A practical engineering partner for AI-enabled products.">
+      <Section id="about" eyebrow={copy.sections.aboutEyebrow} title={copy.sections.aboutTitle}>
         <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-          <p className="text-lg leading-8 text-slate-700 dark:text-slate-300">{siteConfig.about}</p>
+          <p className="text-lg leading-8 text-slate-700 dark:text-slate-300">{copy.about}</p>
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {siteConfig.credentials.map((credential) => (
+            {copy.credentials.map((credential) => (
               <div
                 key={credential.label}
                 className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950"
@@ -247,11 +304,11 @@ export default function Home() {
 
       <Section
         id="publications"
-        eyebrow="Publications & Academic Work"
-        title="Research background in cryptography, benchmarking and privacy."
+        eyebrow={copy.sections.publicationsEyebrow}
+        title={copy.sections.publicationsTitle}
       >
         <div className="grid gap-5 md:grid-cols-2">
-          {siteConfig.publications.map((publication) => (
+          {copy.publications.map((publication) => (
             <article
               key={publication.title}
               className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
@@ -281,16 +338,16 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
               >
-                View publication
+                {copy.projectLabels.publication}
               </a>
             </article>
           ))}
         </div>
       </Section>
 
-      <Section id="stack" eyebrow="Technology Stack" title="Tools selected for reliable delivery.">
+      <Section id="stack" eyebrow={copy.sections.stackEyebrow} title={copy.sections.stackTitle}>
         <div className="grid gap-5 md:grid-cols-2">
-          {siteConfig.technologyGroups.map((group) => (
+          {copy.technologyGroups.map((group) => (
             <article
               key={group.category}
               className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
@@ -313,12 +370,12 @@ export default function Home() {
 
       <section id="contact" className="bg-slate-950 px-6 py-20 text-white">
         <div className="mx-auto max-w-6xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-300">Contact</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-300">{copy.sections.contactEyebrow}</p>
           <div className="mt-4 grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
             <div>
-              <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">Tell me about your project.</h2>
+              <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{copy.sections.contactTitle}</h2>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-                Share the business problem, current constraints and what a successful outcome would look like.
+                {copy.sections.contactText}
               </p>
             </div>
             <div className="space-y-3">
