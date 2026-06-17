@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { contactLinks, personJsonLd, siteConfig } from "@/lib/site";
 
 export default function Home() {
@@ -101,7 +102,26 @@ export default function Home() {
               key={project.name}
               className="grid gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 lg:grid-cols-[0.85fr_1.15fr]"
             >
-              <div className="rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-sky-950 p-6 text-white">
+              <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-sky-950 text-white">
+                <div className="relative h-56">
+                  <Image
+                    src={project.image.src}
+                    alt={project.image.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 390px, 100vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
+                  <a
+                    href={project.image.creditUrl}
+                    className="absolute bottom-3 right-3 rounded-full bg-black/50 px-3 py-1 text-xs text-slate-200 backdrop-blur transition hover:text-white"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {project.image.credit}
+                  </a>
+                </div>
+                <div className="p-6">
                 <p className="font-mono text-sm text-sky-300">0{index + 1} / case study</p>
                 <p className="mt-3 inline-flex rounded-full bg-white/10 px-3 py-1 text-sm text-slate-200">
                   {project.category}
@@ -126,6 +146,7 @@ export default function Home() {
                     ))}
                   </div>
                 ) : null}
+                </div>
               </div>
               <div className="space-y-5">
                 <ProjectBlock title="Context" text={project.context} />
@@ -221,6 +242,49 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </Section>
+
+      <Section
+        id="publications"
+        eyebrow="Publications & Academic Work"
+        title="Research background in cryptography, benchmarking and privacy."
+      >
+        <div className="grid gap-5 md:grid-cols-2">
+          {siteConfig.publications.map((publication) => (
+            <article
+              key={publication.title}
+              className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+            >
+              <p className="text-sm font-medium text-sky-600 dark:text-sky-300">
+                {publication.venue} · {publication.year}
+              </p>
+              <h3 className="mt-4 text-xl font-semibold text-slate-950 dark:text-white">
+                {publication.title}
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                {publication.description}
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {publication.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={publication.href}
+                className="mt-6 inline-flex text-sm font-semibold text-sky-700 transition hover:text-sky-500 dark:text-sky-300 dark:hover:text-sky-200"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View publication
+              </a>
+            </article>
+          ))}
         </div>
       </Section>
 

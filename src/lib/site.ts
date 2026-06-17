@@ -9,6 +9,13 @@ type ProjectLink = {
   href: string;
 };
 
+type ProjectImage = {
+  src: string;
+  alt: string;
+  credit: string;
+  creditUrl: string;
+};
+
 type Project = {
   name: string;
   category: string;
@@ -21,6 +28,7 @@ type Project = {
   technologies: string[];
   outcome: string[];
   status: string;
+  image: ProjectImage;
   links?: ProjectLink[];
 };
 
@@ -38,6 +46,15 @@ type TechnologyGroup = {
 type Credential = {
   label: string;
   value: string;
+};
+
+type Publication = {
+  title: string;
+  venue: string;
+  year: string;
+  description: string;
+  href: string;
+  tags: string[];
 };
 
 export const siteConfig = {
@@ -79,6 +96,26 @@ export const siteConfig = {
     { label: "Education", value: "MSc Cryptography, Cybersecurity & Privacy" },
     { label: "Recognition", value: "Innovation Award, CEOE-Cepyme Salamanca" },
   ] satisfies Credential[],
+  publications: [
+    {
+      title: "Performance Benchmarking of Post-Quantum Cryptographic Algorithms across Heterogeneous Hardware Environments",
+      venue: "MSc Thesis, Universitat Oberta de Catalunya",
+      year: "2026",
+      description:
+        "Outstanding-grade thesis and reproducible benchmarking framework comparing post-quantum algorithms such as ML-KEM, ML-DSA, FrodoKEM and BIKE against classical cryptography across x86_64 and ARM64 hardware.",
+      href: "https://hdl.handle.net/10609/154216",
+      tags: ["Post-quantum cryptography", "Benchmarking", "OpenSSL", "OQS", "Python"],
+    },
+    {
+      title: "Post-Quantum Cryptography: Algorithms and Impact",
+      venue: "Academic publication, Universitat Oberta de Catalunya",
+      year: "2026",
+      description:
+        "Academic work focused on the practical impact of post-quantum cryptographic algorithms, migration considerations and performance trade-offs for real systems.",
+      href: "https://hdl.handle.net/10609/154216",
+      tags: ["PQC", "Cybersecurity", "Privacy", "Cryptographic migration"],
+    },
+  ] satisfies Publication[],
   services: [
     {
       title: "AI & Agents",
@@ -151,6 +188,12 @@ export const siteConfig = {
         "Timely alerts for subscribers based on their interests.",
       ],
       status: "Real product. Add links and screenshots when ready.",
+      image: {
+        src: "https://images.unsplash.com/photo-1763718432504-7716caff6e99?auto=format&fit=crop&w=1200&q=80",
+        alt: "Dashboard interface with alerts and notifications",
+        credit: "Photo via Unsplash",
+        creditUrl: "https://unsplash.com/s/photos/alerts",
+      },
     },
     {
       name: "WhatsApp Medical Appointments",
@@ -175,6 +218,12 @@ export const siteConfig = {
         "Automated appointment flow from message to calendar booking.",
       ],
       status: "Product in development.",
+      image: {
+        src: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+        alt: "Doctor and patient discussing an appointment in a clinic",
+        credit: "Photo via Unsplash",
+        creditUrl: "https://unsplash.com/s/photos/doctor-appointment",
+      },
     },
     {
       name: "Market Sentiment Intelligence",
@@ -199,6 +248,12 @@ export const siteConfig = {
         "Helps businesses identify patterns that are difficult to see manually.",
       ],
       status: "Client project in development.",
+      image: {
+        src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+        alt: "Analytics dashboard with charts and business metrics",
+        credit: "Photo via Unsplash",
+        creditUrl: "https://unsplash.com/s/photos/dashboard-data",
+      },
     },
     {
       name: "AI Reminder Campaigns",
@@ -223,6 +278,12 @@ export const siteConfig = {
         "Gave teams control over audience, channel, topic and frequency.",
       ],
       status: "Production company project, anonymized.",
+      image: {
+        src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+        alt: "Laptop screen representing automated digital workflows",
+        credit: "Photo via Unsplash",
+        creditUrl: "https://unsplash.com/s/photos/workflow-automation",
+      },
     },
     {
       name: "Weekly Audio Project Reports",
@@ -247,6 +308,12 @@ export const siteConfig = {
         "Converted unstructured audio notes into actionable weekly summaries.",
       ],
       status: "Production company project, anonymized.",
+      image: {
+        src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
+        alt: "Construction site representing project reporting workflows",
+        credit: "Photo via Unsplash",
+        creditUrl: "https://unsplash.com/s/photos/construction-site",
+      },
     },
     {
       name: "BC3 Budget Generator",
@@ -271,6 +338,12 @@ export const siteConfig = {
         "Reused domain data to produce more contextual estimates.",
       ],
       status: "Production company project, anonymized.",
+      image: {
+        src: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80",
+        alt: "Engineering and construction planning documents",
+        credit: "Photo via Unsplash",
+        creditUrl: "https://unsplash.com/s/photos/construction-planning",
+      },
     },
   ] as Project[],
   additionalWork: [
