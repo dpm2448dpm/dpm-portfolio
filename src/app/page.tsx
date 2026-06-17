@@ -62,15 +62,17 @@ export default function Home() {
           <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-2xl shadow-slate-200/60 dark:border-slate-800 dark:bg-slate-900 dark:shadow-black/30">
             <div className="rounded-2xl bg-slate-950 p-6 text-slate-100">
               <div className="flex items-center gap-4">
-                <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl border border-slate-800 bg-slate-900">
+                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border border-sky-400/30 bg-slate-900 shadow-lg shadow-sky-950/40">
                   <Image
                     src={siteConfig.profileImage.src}
                     alt={siteConfig.profileImage.alt}
                     fill
-                    className="object-cover"
-                    sizes="96px"
+                    className="scale-110 object-cover object-[center_38%] grayscale contrast-125 saturate-50 brightness-90"
+                    sizes="64px"
                     priority
                   />
+                  <div className="absolute inset-0 bg-sky-400/15 mix-blend-screen" />
+                  <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/10" />
                 </div>
                 <div>
                   <p className="text-sm text-sky-300">{copy.heroCardTitle}</p>
